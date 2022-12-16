@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table mrg">
+      <thead>
+        <tr>
+          <th></th>
+          <th>List of To-Do</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks ">
+          <td ><input type="checkbox"></td>
+          <td class="text-truncate col-md-6" style="max-width: 150px; min-width: 150px;">{{task}}</td>
+          <td ><button class="btn btn-outline-danger" (click)="remove(task)" >Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <form [formGroup] = "taskForm" class="mrg row">
+      <div class="mb-3 col-8">
+          <input type="text" class="form-control" formControlName="dTask"  placeholder="New task">
+      </div>
+      <div class="col-4">
+        <button type="submit" class="btn btn-outline-primary" (click)="register()" [disabled]="!taskForm.valid">Add new task</button>
+      </div>
+    </form>
+  </div>
